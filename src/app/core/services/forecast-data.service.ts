@@ -5,9 +5,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class ForecastDataService {
-  apiUrl: string =
-    'https://www.metaweather.com/api/location/search/?query=london'
-  // "https://swapi.dev/api/people/1/"
+  apiUrl: string = '/api/location/search/?query=london';
 
   constructor(private http: HttpClient) { }
   getData() {

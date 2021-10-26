@@ -5,7 +5,7 @@ import { ForecastDataService } from './core/services/forecast-data.service';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [],
+  providers: [ForecastDataService],
 })
 export class AppComponent implements OnInit {
   title = 'angular-weather-app';
