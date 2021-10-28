@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { loadForecastData } from './core/store/actions/action';
+import { ForecastInitialState } from './core/models/forecast-data.model';
 import { ForecastDataService } from './core/services/forecast-data.service';
 
 @Component({
@@ -8,12 +11,9 @@ import { ForecastDataService } from './core/services/forecast-data.service';
   providers: [ForecastDataService],
 })
 export class AppComponent implements OnInit {
-  title = 'angular-weather-app';
+  constructor(private store: Store<ForecastInitialState>) {}
 
-  constructor(private forecastDataService: ForecastDataService) { }
-  ngOnInit() {
-    this.forecastDataService.getData().subscribe((data: any) => {
-      return console.log(data);
-    });
+  ngOnInit(): void {
+    this.store.dispatch(loadForecastData());
   }
 }
