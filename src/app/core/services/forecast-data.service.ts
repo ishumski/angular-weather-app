@@ -6,11 +6,11 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ForecastDataService {
-  apiUrl: string = '/api/location/search/?lattlong=53.723142,23.8400063';
 
   constructor(private http: HttpClient) {}
 
-  getData(): Observable<Object> {
-    return this.http.get(this.apiUrl);
+  getForecast(param: string): Observable<Object> {
+    const apiUrl: string = `/api/location/search/?${param}`;
+    return this.http.get(apiUrl);
   }
 }
