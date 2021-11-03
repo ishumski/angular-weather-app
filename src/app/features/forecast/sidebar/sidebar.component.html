@@ -32,22 +32,28 @@
       alt="large-cloud-icon"
       class="sidebar__large-cloud"
     />
-    <img src="" alt="weather-icon" class="sidebar__weather-icon" />
+    <img
+      src="https://www.metaweather.com/static/img/weather/{{
+        selectWeatherStateAbbr
+      }}.svg"
+      alt="weather-icon"
+      class="sidebar__weather-icon"
+    />
     <div class="sidebar__temperature">
-      <p class="sidebar__temperature-value">15</p>
+      <p class="sidebar__temperature-value">{{ temp }}</p>
       <p class="sidebar__temperature-icon">°C</p>
     </div>
-    <h3 class="sidebar__weaher-state-name">WEATHER STATE NAME</h3>
+    <h3 class="sidebar__weaher-state-name">{{ weatherStateName }}</h3>
   </div>
   <footer class="sidebar__footer">
     <div class="sidebar__current-date">
       <p>Today</p>
       <img src="../../../../assets/images/dot.svg" alt="dot-icon" />
-      <p>date</p>
+      <p>{{ currentDate }}</p>
     </div>
     <div class="sidebar__location">
       <img src="../../../../assets/images/location.svg" alt="location-icon" />
-      <p class="sidebar__location-title">{{ woeid$ | async }}</p>
+      <p class="sidebar__location-title">{{ title }}</p>
     </div>
   </footer>
 </div>

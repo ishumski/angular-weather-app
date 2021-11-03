@@ -26,9 +26,9 @@ export interface ConsolidatedWeather {
 }
 
 export interface CurrentLocationData {
-    distance: number,
-    latt_long: string,
-    location_type: string,
-    title: string,
-    woeid: number,
+    distance?: number,
+    latt_long?: string,
+    location_type?: string,
+    title?: string,
+    woeid?: number,
 }

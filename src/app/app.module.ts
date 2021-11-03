@@ -7,13 +7,14 @@ import { AppComponent } from './app.component';
 import { ForecastDataReducer } from './core/store/reducers/reducer';
 import { ForecastDataEffect } from './core/store/effects/effects';
 import { ForecastDataService } from './core/services/forecast-data.service';
-import { SidebarComponent } from './core/components/sidebar/sidebar.component';
+import { ForecastModule } from './features/forecast/forecast.module';
 
 @NgModule({
-  declarations: [AppComponent, SidebarComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
+    ForecastModule,
     EffectsModule.forRoot([ForecastDataEffect]),
     StoreModule.forRoot({ forecast: ForecastDataReducer }),
   ],
