@@ -9,7 +9,7 @@ import { CurrentLocationData } from '../models/forecast-data.model';
 export class ForecastDataService {
   constructor(private http: HttpClient) {}
 
-  getForecast(param: any): Observable<CurrentLocationData> {
+  getForecast(param: string): Observable<CurrentLocationData> {
     const apiUrl: string = `/api/location/search/?${param}`;
     return this.http.get(apiUrl);
   }

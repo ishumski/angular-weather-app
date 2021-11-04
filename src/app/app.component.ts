@@ -20,15 +20,14 @@ export class AppComponent implements OnInit {
 
         const currentGeolocationByCoords: string = `lattlong=${fixedLatitude},${fixedLongitude}`;
         console.log(currentGeolocationByCoords);
-        return currentGeolocationByCoords;
+        this.store.dispatch(
+          loadForecastData({ coords: currentGeolocationByCoords })
+        );
       }
     );
   }
 
   ngOnInit(): void {
-    this.store.dispatch(
-      loadForecastData({ coords: this.getCurrentGeoposition() })
-    );
-    console.log('this.getCurrentGeoposition()', this.getCurrentGeoposition());
+    this.getCurrentGeoposition();
   }
 }

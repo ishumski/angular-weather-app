@@ -10,5 +10,5 @@ export class SidebarPresentationComponent {
   @Input() temp: number | null = 0;
   @Input() weatherStateName: string | null = '';
   @Input() selectWeatherStateAbbr: string | null = '';
-  @Input() currentDate!: string | null ;
+  @Input() currentDate!: string | null;
 }

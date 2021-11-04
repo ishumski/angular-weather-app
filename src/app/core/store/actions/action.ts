@@ -3,7 +3,7 @@ import { ForecastData } from '../../models/forecast-data.model';
 
 export const loadForecastData = createAction(
   '[FORECAST] loadForecastData',
-  props<{ coords: string | void }>()
+  props<{ coords: string }>()
 );
 
 export const setForecastData = createAction(

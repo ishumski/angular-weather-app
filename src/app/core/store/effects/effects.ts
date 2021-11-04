@@ -17,22 +17,20 @@ export class ForecastDataEffect {
   getForecastData$ = createEffect((): any => {
     return this.actions$.pipe(
       ofType(loadForecastData),
-      switchMap((): Observable<Object> => {
-        return this.forecastDataService
-          .getForecast('lattlong=53.72,23.84')
-          .pipe(
-            switchMap((forecastData: any) => {
-              const currentWoeid: number = forecastData[0].woeid;
-              const currentLocationForecast: string = `/api/location/${currentWoeid}/`;
-              return this.forecastDataService
-                .getCurrentForecast(currentLocationForecast)
-                .pipe(
-                  switchMap((data: any) => {
-                    return [setForecastData({ forecastData: data })];
-                  })
-                );
-            })
-          );
+      switchMap((action): Observable<Object> => {
+        return this.forecastDataService.getForecast(action.coords).pipe(
+          switchMap((forecastData: any) => {
+            const currentWoeid: number = forecastData[0].woeid;
+            const currentLocationForecast: string = `/api/location/${currentWoeid}/`;
+            return this.forecastDataService
+              .getCurrentForecast(currentLocationForecast)
+              .pipe(
+                switchMap((data: any) => {
+                  return [setForecastData({ forecastData: data })];
+                })
+              );
+          })
+        );
       })
     );
   });
