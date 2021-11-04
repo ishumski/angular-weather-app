@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { loadForecastData } from './core/store/actions/action';
 
 @Component({
   selector: 'app-root',
@@ -6,7 +8,27 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  constructor() {}
+  constructor(private store: Store) {}
 
-  ngOnInit(): void {}
+  getCurrentGeoposition() {
+    navigator.geolocation.getCurrentPosition(
+      (position: GeolocationPosition) => {
+        const { latitude, longitude } = position.coords;
+
+        const fixedLatitude: number = parseFloat(latitude.toFixed(2));
+        const fixedLongitude: number = parseFloat(longitude.toFixed(2));
+
+        const currentGeolocationByCoords: string = `lattlong=${fixedLatitude},${fixedLongitude}`;
+        console.log(currentGeolocationByCoords);
+        return currentGeolocationByCoords;
+      }
+    );
+  }
+
+  ngOnInit(): void {
+    this.store.dispatch(
+      loadForecastData({ coords: this.getCurrentGeoposition() })
+    );
+    console.log('this.getCurrentGeoposition()', this.getCurrentGeoposition());
+  }
 }

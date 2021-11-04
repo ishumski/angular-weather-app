@@ -31,7 +31,5 @@ export class SidebarSmartComponent implements OnInit {
     );
   }
 
-  ngOnInit(): void {
-    this.store.dispatch(loadForecastData());
-  }
+  ngOnInit(): void {}
 }
