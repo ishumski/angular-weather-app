@@ -1,12 +1,16 @@
 <div class="sidebar">
   <div class="sidebar__header">
-    <button class="sidebar__search">Search for places</button>
-    <button class="sidebar__geoposition">
-      <img
-        src="../../../../assets/images/geoposition.svg"
-        alt="geoposition-icon"
-      />
-    </button>
+    <app-button
+      label=" Search for places"
+      [buttonStyles]="buttonStyles"
+      [type]="'button'"
+      (handleClick)="showMessage()"
+    ></app-button>
+    <app-badge
+      [badgeStyles]="badgeStyles"
+      [src]="'../../../../assets/images/geoposition.svg'"
+      [alt]="'geoposition-icon'"
+    ></app-badge>
   </div>
   <div class="sidebar__body">
     <div>

@@ -1,0 +1,8 @@
+@import "../../../styles/mixins";
+
+.badge__container {
+  @include elemSize($w: 40px, $h: 40px);
+  @include elemPlacement($dp: flex, $jc: center, $ai: center);
+  border-radius: 50%;
+  cursor: pointer;
+}

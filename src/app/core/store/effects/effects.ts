@@ -4,6 +4,10 @@ import { switchMap } from 'rxjs/operators';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { loadForecastData, setForecastData } from '../actions/action';
 import { ForecastDataService } from '../../services/forecast-data.service';
+import {
+  CurrentLocationData,
+  ForecastData,
+} from '../../models/forecast-data.model';
 
 @Injectable({
   providedIn: 'root',
@@ -17,10 +21,10 @@ export class ForecastDataEffect {
   getForecastData$ = createEffect((): any => {
     return this.actions$.pipe(
       ofType(loadForecastData),
-      switchMap((action): Observable<Object> => {
+      switchMap((action) => {
         return this.forecastDataService.getForecast(action.coords).pipe(
-          switchMap((forecastData: any) => {
-            const currentWoeid: number = forecastData[0].woeid;
+          switchMap((forecastData: CurrentLocationData[]) => {
+            const currentWoeid: number | undefined = forecastData[0]?.woeid;
             const currentLocationForecast: string = `/api/location/${currentWoeid}/`;
             return this.forecastDataService
               .getCurrentForecast(currentLocationForecast)

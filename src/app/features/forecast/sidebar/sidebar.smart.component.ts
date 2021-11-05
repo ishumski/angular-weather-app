@@ -14,10 +14,10 @@ import * as selectors from '../../../core/store/selectors/selector';
   ></app-sidebar-presentation>`,
 })
 export class SidebarSmartComponent implements OnInit {
-  title$: Observable<string>;
-  temp$: Observable<number>;
-  weatherStateName$: Observable<string>;
-  selectWeatherStateAbbr$: Observable<string>;
+  title$: Observable<string | undefined>;
+  temp$: Observable<number | undefined>;
+  weatherStateName$: Observable<string | undefined>;
+  selectWeatherStateAbbr$: Observable<string | undefined>;
 
   currentDate: Date = new Date();
 

@@ -8,6 +8,7 @@ import { ForecastDataReducer } from './core/store/reducers/reducer';
 import { ForecastDataEffect } from './core/store/effects/effects';
 import { ForecastDataService } from './core/services/forecast-data.service';
 import { ForecastModule } from './features/forecast/forecast.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -15,6 +16,7 @@ import { ForecastModule } from './features/forecast/forecast.module';
     BrowserModule,
     HttpClientModule,
     ForecastModule,
+    SharedModule,
     EffectsModule.forRoot([ForecastDataEffect]),
     StoreModule.forRoot({ forecast: ForecastDataReducer }),
   ],
