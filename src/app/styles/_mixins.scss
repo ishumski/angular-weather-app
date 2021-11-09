@@ -1,0 +1,35 @@
+@mixin elemPlacement(
+  $dp: null,
+  $fl: null,
+  $fd: null,
+  $jc: null,
+  $ai: null,
+  $fw: null
+) {
+  display: $dp;
+  flex: $fl;
+  flex-direction: $fd;
+  justify-content: $jc;
+  align-items: $ai;
+  flex-wrap: $fw;
+}
+
+@mixin elemSize($w: null, $h: null, $minw: null, $maxw: null) {
+  width: $w;
+  height: $h;
+  min-width: $minw;
+  max-width: $maxw;
+}
+
+@mixin elemFonts($fw: null, $fs: null) {
+  font-weight: $fw;
+  font-size: $fs;
+}
+
+@mixin elemPosition($pt: null, $t: null, $b: null, $l: null, $r: null) {
+  position: $pt;
+  top: $t;
+  bottom: $b;
+  left: $l;
+  right: $r;
+}

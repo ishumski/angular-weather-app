@@ -29,7 +29,7 @@ export const initialState: ForecastInitialState = {
 
 const reducer = createReducer(
   initialState,
-  on(setForecastData, (state, { forecastData }): any => {
+  on(setForecastData, (state, { forecastData }): ForecastInitialState => {
     return {
       ...state,
       forecastData: forecastData,

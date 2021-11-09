@@ -1,0 +1,26 @@
+@import "../../../styles/mixins";
+@import "../../../styles/palette";
+
+.primary {
+  @include elemSize($w: 40px, $h: 40px);
+  @include elemPlacement($dp: flex, $jc: center, $ai: center);
+  background: $whiteOpacity;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.secondary {
+  @include elemSize($w: 40px, $h: 40px);
+  @include elemPlacement($dp: flex, $jc: center, $ai: center);
+  background: $primaryLightgrey;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.tertiary {
+  @include elemSize($w: 40px, $h: 40px);
+  @include elemPlacement($dp: flex, $jc: center, $ai: center);
+  background: $secondaryBlueGrey;
+  border-radius: 50%;
+  cursor: pointer;
+}

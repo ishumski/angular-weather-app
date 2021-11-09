@@ -1,13 +1,32 @@
 import { createSelector } from '@ngrx/store';
 import {
   ConsolidatedWeather,
-  ForecastInitialState,
+  ForecastData,
 } from '../../models/forecast-data.model';
 
-export const selectForecastData = (state: ForecastInitialState) =>
-  state.forecastData;
+const selectForecastData = (state: any) => state.forecast.forecastData;
 
-export const selectConsolidateWeather = createSelector(
+const selectConsolidateWeather = createSelector(
   selectForecastData,
-  (state): ConsolidatedWeather[] => state.consolidated_weather
+  (state:ConsolidatedWeather) => state.consolidated_weather[0]
+);
+
+export const selectWeatherStateName = createSelector(
+  selectConsolidateWeather,
+  (state: ConsolidatedWeather) => state.weather_state_name
+);
+
+export const selectWeatherStateAbbr = createSelector(
+  selectConsolidateWeather,
+  (state: ConsolidatedWeather) => state.weather_state_abbr
+);
+
+export const selectTemp = createSelector(
+  selectConsolidateWeather,
+  (state: ConsolidatedWeather) => state.the_temp
+);
+
+export const selectTitle = createSelector(
+  selectForecastData,
+  (state: ForecastData) => state.title
 );

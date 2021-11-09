@@ -1,0 +1,14 @@
+@import "../../../styles/mixins";
+@import "../../../styles/palette";
+@import "../../../styles/fonts";
+
+.primary {
+  @include elemSize($w: 161px, $h: 40px);
+  @include elemFonts($fw: $normal, $fs: $secondaryRegular);
+  border: none;
+  font-family: Raleway;
+  color: $primaryLightgrey;
+  background: $grey;
+  box-shadow: 0px 4px 4px 0.3;
+  cursor: pointer;
+}

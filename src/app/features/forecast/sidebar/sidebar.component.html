@@ -1,0 +1,62 @@
+<div class="sidebar">
+  <div class="sidebar__header">
+    <app-button
+      label=" Search for places"
+      [type]="'primary'"
+      [buttonType]="'button'"
+      (handleClick)="showMessage()"
+    ></app-button>
+    <app-badge
+      [type]="'primary'"
+      [src]="'../../../../assets/images/geoposition.svg'"
+      [alt]="'geoposition-icon'"
+    ></app-badge>
+  </div>
+  <div class="sidebar__body">
+    <div>
+      <img
+        src="../../../../assets/images/cloudy.png"
+        alt="small-cloud-icon"
+        class="sidebar__small-cloud"
+      />
+    </div>
+    <img
+      src="../../../../assets/images/cloudy.png"
+      alt="medium-cloud-icon"
+      class="sidebar__medium-cloud-right"
+    />
+    <img
+      src="../../../../assets/images/cloudy.png"
+      alt="medium-cloud-icon"
+      class="sidebar__medium-cloud-left"
+    />
+    <img
+      src="../../../../assets/images/cloudy.png"
+      alt="large-cloud-icon"
+      class="sidebar__large-cloud"
+    />
+    <img
+      src="https://www.metaweather.com/static/img/weather/{{
+        selectWeatherStateAbbr
+      }}.svg"
+      alt="weather-icon"
+      class="sidebar__weather-icon"
+    />
+    <div class="sidebar__temperature">
+      <p class="sidebar__temperature-value">{{ temp }}</p>
+      <p class="sidebar__temperature-icon">°C</p>
+    </div>
+    <h3 class="sidebar__weaher-state-name">{{ weatherStateName }}</h3>
+  </div>
+  <footer class="sidebar__footer">
+    <div class="sidebar__current-date">
+      <p>Today</p>
+      <img src="../../../../assets/images/dot.svg" alt="dot-icon" />
+      <p>{{ currentDate }}</p>
+    </div>
+    <div class="sidebar__location">
+      <img src="../../../../assets/images/location.svg" alt="location-icon" />
+      <p class="sidebar__location-title">{{ title }}</p>
+    </div>
+  </footer>
+</div>

@@ -1,16 +1,21 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { CurrentLocationData } from '../models/forecast-data.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ForecastDataService {
-  apiUrl: string = '/api/location/search/?lattlong=53.723142,23.8400063';
-
   constructor(private http: HttpClient) {}
 
-  getData(): Observable<Object> {
-    return this.http.get(this.apiUrl);
+  getForecast(param: string): Observable<CurrentLocationData[]> {
+    const apiUrl: string = `/api/location/search/?${param}`;
+    return this.http.get<CurrentLocationData[]>(apiUrl);
+  }
+
+  getCurrentForecast(param: string) {
+    const apiUrl: string = `/api/location/${param}`;
+    return this.http.get(apiUrl);
   }
 }
