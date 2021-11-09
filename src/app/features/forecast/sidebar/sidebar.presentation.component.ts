@@ -12,8 +12,7 @@ export class SidebarPresentationComponent {
   @Input() selectWeatherStateAbbr: string | null | undefined = '';
   @Input() currentDate!: string | null | undefined;
 
-  isPrimaryBadgeWrapper = true;
   isPrimaryButtonWrapper = true;
-  
+
   showMessage() {}
 }

@@ -6,9 +6,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./badge.component.scss'],
 })
 export class BadgeComponent implements OnInit {
-  @Input() isPrimaryBadgeWrapper!: boolean;
-  @Input() isSecondaryBadgeWrapper!: boolean;
-  @Input() isTertiaryBadgeWrapper!: boolean;
+  @Input() type!: string;
   @Input() src!: string;
   @Input() alt!: string;
 
