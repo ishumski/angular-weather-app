@@ -1,17 +1,11 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { loadForecastData, setForecastData } from '../actions/action';
 import { ForecastDataService } from '../../services/forecast-data.service';
-import {
-  CurrentLocationData,
-  ForecastData,
-} from '../../models/forecast-data.model';
+import { CurrentLocationData } from '../../models/forecast-data.model';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class ForecastDataEffect {
   constructor(
     private actions$: Actions,

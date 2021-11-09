@@ -1,3 +1,7 @@
-<button [type]="type" [ngStyle]="buttonStyles" (click)="(onClick())">
+<button
+  [type]="type"
+  [ngClass]="{ primary: isPrimaryButtonWrapper }"
+  (click)="onClick()"
+>
   {{ label }}
 </button>

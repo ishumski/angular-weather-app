@@ -2,12 +2,12 @@
   <div class="sidebar__header">
     <app-button
       label=" Search for places"
-      [buttonStyles]="buttonStyles"
+      [isPrimaryButtonWrapper]="isPrimaryButtonWrapper"
       [type]="'button'"
       (handleClick)="showMessage()"
     ></app-button>
     <app-badge
-      [badgeStyles]="badgeStyles"
+      [isPrimaryBadgeWrapper]="isPrimaryBadgeWrapper"
       [src]="'../../../../assets/images/geoposition.svg'"
       [alt]="'geoposition-icon'"
     ></app-badge>

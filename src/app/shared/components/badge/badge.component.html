@@ -1,3 +1,10 @@
-<div [ngStyle]="badgeStyles" class="badge__container" (click)="onClick()">
+<div
+  [ngClass]="{
+    primary: isPrimaryBadgeWrapper,
+    secondary: isSecondaryBadgeWrapper,
+    tertiary: isTertiaryBadgeWrapper
+  }"
+  (click)="onClick()"
+>
   <img [src]="src" [alt]="alt" />
 </div>

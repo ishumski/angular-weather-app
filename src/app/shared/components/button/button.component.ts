@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { ButtonStylesProps } from 'src/app/core/models/shared.model';
 
 @Component({
   selector: 'app-button',
@@ -7,7 +6,7 @@ import { ButtonStylesProps } from 'src/app/core/models/shared.model';
   styleUrls: ['./button.component.scss'],
 })
 export class ButtonComponent implements OnInit {
-  @Input() buttonStyles!: ButtonStylesProps;
+  @Input() isPrimaryButtonWrapper!: boolean;
   @Input() type!: string;
   @Input() label!: string;
 

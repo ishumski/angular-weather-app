@@ -8,6 +8,7 @@ export interface ForecastData {
 }
 
 export interface ConsolidatedWeather {
+  [x: string]: any;
   air_pressure?: number;
   applicable_date?: string;
   created?: string;

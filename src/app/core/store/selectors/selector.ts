@@ -8,7 +8,7 @@ const selectForecastData = (state: any) => state.forecast.forecastData;
 
 const selectConsolidateWeather = createSelector(
   selectForecastData,
-  (state) => state.consolidated_weather[0]
+  (state:ConsolidatedWeather) => state.consolidated_weather[0]
 );
 
 export const selectWeatherStateName = createSelector(
