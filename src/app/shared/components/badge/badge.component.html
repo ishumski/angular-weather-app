@@ -1,3 +1,10 @@
-<div [ngClass]="type" (click)="onClick()">
+<div *ngIf="isImage; else isSVG" [ngClass]="type" (click)="onClick()">
   <img [src]="src" [alt]="alt" />
 </div>
+
+<ng-template #isSVG>
+  <div class="ng-template">
+    <app-celsius [ngClass]="type" [fill]="'#e7e7eb'"></app-celsius>
+    <app-fahrenheit [ngClass]="type" [fill]="'#e7e7eb'"></app-fahrenheit>
+  </div>
+</ng-template>

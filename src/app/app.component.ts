@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
         const fixedLongitude: number = parseFloat(longitude.toFixed(2));
 
         const currentGeolocationByCoords: string = `lattlong=${fixedLatitude},${fixedLongitude}`;
-        console.log(currentGeolocationByCoords);
+
         this.store.dispatch(
           loadForecastData({ coords: currentGeolocationByCoords })
         );

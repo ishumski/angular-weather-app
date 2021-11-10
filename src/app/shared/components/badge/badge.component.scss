@@ -24,3 +24,8 @@
   border-radius: 50%;
   cursor: pointer;
 }
+
+.ng-template {
+  @include elemPlacement($dp: flex, $jc: space-between);
+  @include elemSize($w: 100%, $maxw: 92px);
+}

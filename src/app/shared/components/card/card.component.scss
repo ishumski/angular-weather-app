@@ -1,0 +1,19 @@
+@import "../../../styles/mixins";
+@import "../../../styles/palette";
+@import "../../../styles/fonts";
+
+.card {
+  &__container {
+    @include elemPlacement($dp: flex, $fd: column, $ai: center);
+
+    color: $primaryLightgrey;
+    background: $secondaryDarkBlue;
+
+    @media (max-width: 1175px) {
+      margin-bottom: 32px;
+    }
+  }
+  &__title {
+    @include elemFonts($fw: $normal, $fs: $primaryRegular);
+  }
+}

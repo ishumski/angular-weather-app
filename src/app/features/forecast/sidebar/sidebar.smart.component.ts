@@ -15,7 +15,7 @@ import * as selectors from '../../../core/store/selectors/selector';
 })
 export class SidebarSmartComponent implements OnInit {
   title$: Observable<string | undefined>;
-  temp$: Observable<number | undefined>;
+  temp$: Observable<number | string | undefined>;
   weatherStateName$: Observable<string | undefined>;
   selectWeatherStateAbbr$: Observable<string | undefined>;
 

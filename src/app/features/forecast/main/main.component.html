@@ -1,0 +1,89 @@
+<main class="main__container">
+  <div class="main__forecast">
+    <div class="main__header">
+      <div class="main__temp-container">
+        <div class="main__temp-badgets">
+          <app-badge [isImage]="false" [type]="'primary'"></app-badge>
+        </div>
+      </div>
+      <app-forecast-single-item
+        [selectFiveDaysForecast]="selectFiveDaysForecast$"
+      ></app-forecast-single-item>
+
+      <!-- <h1 [ngTemplateOutlet]="cardTemplate" ></h1>
+
+      <ng-template #cardTemplate >
+        <app-card></app-card>
+      </ng-template> -->
+    </div>
+
+    <div class="main__wrapper">
+      <h1 class="main__hilights">Today's Hightlights</h1>
+
+      <div class="main__detailed-forecast">
+        <div class="main__detailed-container">
+          <p class="main__detailed-title">Wind Status</p>
+          <div class="main__detailed-forecast">
+            <div class="main__detailed-value">
+              {{ selectWindSpeed$ | async }}
+            </div>
+            <span class="main__detailed-text"> mph </span>
+          </div>
+          <div class="main__detailed-info">
+            <img
+              src="../../../../assets/images/navigation.svg"
+              alt="wind-icon"
+            />
+            <div>{{ selectWindDirectionCompas$ | async }}</div>
+          </div>
+        </div>
+
+        <div class="main__detailed-container">
+          <p class="main__detailed-title">Humidity</p>
+          <div class="main__detailed-forecast">
+            <div class="main__detailed-value">
+              {{ selectHumidity$ | async }}
+            </div>
+            <span class="main__detailed-text"> %</span>
+          </div>
+          <div class="main__detailed-info">
+            <div class="humidity-bar__container">
+              <div class="humidity-bar__value">
+                <span>0</span>
+                <span>50</span>
+                <span>100</span>
+              </div>
+              <div class="humidity-bar__track">
+                <div
+                  class="humidity-bar__percentage"
+                  style="width:{{ selectHumidity$ | async }}%"
+                ></div>
+              </div>
+              <div class="humidity-bar__percent-sign">%</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="main__detailed-container">
+          <p class="main__detailed-title">Visibility</p>
+          <div class="main__detailed-forecast">
+            <div class="main__detailed-value">
+              {{ selectVisibility$ | async }}
+            </div>
+            <span class="main__detailed-text"> miles</span>
+          </div>
+        </div>
+
+        <div class="main__detailed-container">
+          <p class="main__detailed-title">Air Pressure</p>
+          <div class="main__detailed-forecast">
+            <div class="main__detailed-value">
+              {{ selectAirPressure$ | async }}
+            </div>
+            <span class="main__detailed-text"> mb</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
