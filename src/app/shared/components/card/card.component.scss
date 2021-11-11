@@ -1,0 +1,31 @@
+@import "../../../styles/mixins";
+@import "../../../styles/palette";
+@import "../../../styles/fonts";
+
+.primary {
+  @include elemPlacement($dp: flex, $fd: column, $ai: center);
+  @include elemSize($w: 120px);
+  color: $primaryLightgrey;
+  background: $secondaryDarkBlue;
+
+  @media (max-width: 1175px) {
+    margin-bottom: 32px;
+  }
+
+  .title {
+    @include elemFonts($fw: $normal, $fs: $primaryRegular);
+  }
+}
+
+.secondary {
+  @include elemPlacement($dp: flex, $fd: column, $ai: center);
+  @include elemSize($w: 328px, $h: 204px);
+  margin-bottom: 48px;
+  color: $primaryLightgrey;
+  background: $secondaryDarkBlue;
+
+  .title {
+    @include elemFonts($fw: $normal, $fs: $primaryRegular);
+  }
+}
+

@@ -1,0 +1,79 @@
+<main class="main__container">
+  <div class="main__forecast">
+    <div class="main__header">
+      <div class="main__temp-container">
+        <div class="main__temp-badgets">
+          <app-badge
+            [type]="isFahrenheit ? 'primary' : 'secondary'"
+            (click)="handleClickToC()"
+          >
+            <app-celsius
+              [ngStyle]="{ fill: isFahrenheit ? '#e7e7eb' : '#110E3C' }"
+            >
+            </app-celsius>
+          </app-badge>
+          <app-badge
+            [type]="!isFahrenheit ? 'primary' : 'secondary'"
+            (click)="handleClickToF()"
+          >
+            <app-fahrenheit
+              [ngStyle]="{ fill: !isFahrenheit ? '#e7e7eb' : '#110E3C' }"
+            >
+            </app-fahrenheit>
+          </app-badge>
+        </div>
+      </div>
+      <app-forecast-single-item
+        [selectFiveDaysForecast]="selectFiveDaysForecast$"
+      ></app-forecast-single-item>
+    </div>
+    <p>
+      {{
+        !isFahrenheit ? customNumber : changeCelsiusToFahrenheit(customNumber)
+      }}
+    </p>
+    <div class="main__wrapper">
+      <h1 class="main__hilights">Today's Hightlights</h1>
+      <div class="main__detailed-forecast">
+        <app-forecast-info
+          [title]="'Wind Status'"
+          [value]="selectWindSpeed$"
+          [text]="'mph'"
+        >
+          <div class="main__detailed-info">
+            <img
+              src="../../../../assets/images/navigation.svg"
+              alt="wind-icon"
+            />
+            <div>{{ selectWindDirectionCompas$ | async }}</div>
+          </div>
+        </app-forecast-info>
+
+        <app-forecast-info
+          [title]="'Humidity'"
+          [value]="selectHumidity$"
+          [text]="'%'"
+        >
+          <div class="main__detailed-info">
+            <app-humidity-bar
+              [selectHumidity]="selectHumidity$"
+            ></app-humidity-bar>
+          </div>
+        </app-forecast-info>
+
+        <app-forecast-info
+          [title]="'Visibility'"
+          [value]="selectVisibility$"
+          [text]="'miles'"
+        ></app-forecast-info>
+
+        <app-forecast-info
+          [title]="'Air Pressure'"
+          [value]="selectAirPressure$"
+          [text]="'mb'"
+        ></app-forecast-info>
+      </div>
+    </div>
+  </div>
+</main>
+l

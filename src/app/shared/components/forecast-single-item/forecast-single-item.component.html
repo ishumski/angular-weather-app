@@ -1,0 +1,34 @@
+<div class="forecast-single-item">
+  <app-card
+    [type]="'primary'"
+    [title]="
+      idx === 0 ? 'Tomorrow' : (elem.applicable_date | date: 'EEE, d MMM')
+    "
+    *ngFor="let elem of selectFiveDaysForecast | async; let idx = index"
+  >
+    <div class="forecast-single-item__content">
+      <img
+        src="https://www.metaweather.com/static/img/weather/png/64/{{
+          elem.weather_state_abbr
+        }}.png"
+        alt="forecast-icon"
+      />
+    </div>
+
+    <div class="forecast-single-item__info">
+      <p class="forecast-single-item__max-temp">
+        <!-- {{
+          !isFahrenheit ? +(elem.max_temp?.toFixed(1)) : changeCelsiusToFahrenheit(+(elem.max_temp?.toFixed(1)))
+        }}°C -->
+        {{ +elem.max_temp?.toFixed(1) }}
+      </p>
+      <p class="forecast-single-item__min-temp">
+        <!-- {{
+          !isFahrenheit ? +(elem.min_temp?.toFixed(1)) : changeCelsiusToFahrenheit(+(elem.max_temp?.toFixed(1)))
+        }}°C -->
+
+        {{ +elem.min_temp?.toFixed(1) }}°C
+      </p>
+    </div>
+  </app-card>
+</div>

@@ -6,11 +6,12 @@
       [buttonType]="'button'"
       (handleClick)="showMessage()"
     ></app-button>
-    <app-badge
-      [type]="'primary'"
-      [src]="'../../../../assets/images/geoposition.svg'"
-      [alt]="'geoposition-icon'"
-    ></app-badge>
+    <app-badge [type]="'primary'">
+      <img
+        src="../../../../assets/images/geoposition.svg"
+        alt="geoposition-icon"
+      />
+    </app-badge>
   </div>
   <div class="sidebar__body">
     <div>

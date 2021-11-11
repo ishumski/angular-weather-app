@@ -1,0 +1,4 @@
+@import "../../../../styles/mixins";
+svg {
+  @include elemPlacement($dp: flex, $jc: center, $ai: center);
+}

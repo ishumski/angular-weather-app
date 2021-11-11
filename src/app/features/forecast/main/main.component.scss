@@ -1,0 +1,81 @@
+@import "../../../styles/mixins";
+@import "../../../styles/fonts";
+@import "../../../styles/palette";
+
+.main {
+  &__container {
+    @include elemPlacement($dp: flex, $fl: 0.7, $jc: center);
+    @include elemSize($h: 100%);
+    color: $primaryLightgrey;
+    background: $primaryDarkBlue;
+    z-index: 1;
+  }
+  &__forecast {
+    @include elemSize($w: 100%, $maxw: 704px);
+    padding: 42px 25px 25px;
+
+    @media (max-width: 1175px) {
+      @include elemSize($maxw: 328px);
+      padding: 25px 23px 10px;
+    }
+  }
+  &__header {
+    @include elemPlacement($dp: flex, $fd: column);
+    @include elemSize($h: 283px);
+    margin-bottom: 72px;
+
+    @media (max-width: 1175px) {
+      @include elemSize($h: 580px);
+      margin-bottom: 51px;
+    }
+  }
+  &__temp-container {
+    @include elemPlacement($dp: flex, $jc: flex-end);
+    margin-bottom: 66px;
+
+    @media (max-width: 1175px) {
+      @include elemPlacement($dp: none);
+    }
+  }
+  &__temp {
+    &-badgets {
+      @include elemPlacement($dp: flex, $jc: space-between);
+      @include elemSize($w: 100%, $maxw: 92px);
+    }
+    &-celsius-icon,
+    &-fahrenheit-icon {
+      @include elemPlacement($dp: flex, $jc: center, $ai: center);
+      @include elemSize($w: 42px, $h: 42px);
+      border-radius: 50%;
+      background: $secondaryBlueGrey;
+      cursor: pointer;
+    }
+  }
+  &__consolidate-weather-info {
+    @include elemPlacement($dp: flex, $jc: space-between);
+    margin-bottom: 50px;
+
+    @media (max-width: 1175px) {
+      @include elemPlacement($dp: flex, $jc: space-between, $fw: wrap);
+      margin: 0 30px;
+    }
+  }
+
+  &__wrapper {
+    @include elemPlacement($dp: flex, $fd: column);
+  }
+  &__hilights {
+    @include elemFonts($fw: $bold, $fs: $primaryIncreased);
+    margin: 0px 0px 32px 0px;
+    color: $primaryLightgrey;
+  }
+
+  &__detailed-forecast {
+    @include elemPlacement($dp: flex, $jc: space-between, $fw: wrap);
+  }
+  &__detailed {
+    &-info {
+      @include elemPlacement($dp: flex);
+    }
+  }
+}

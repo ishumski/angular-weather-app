@@ -24,6 +24,7 @@ export class ForecastDataEffect {
               .getCurrentForecast(currentLocationForecast)
               .pipe(
                 switchMap((data: any) => {
+                  console.log("dsta", data.consolidated_weather.slice(1).map((elem:any)=>parseFloat(elem.max_temp.toFixed(1))) )
                   return [setForecastData({ forecastData: data })];
                 })
               );
