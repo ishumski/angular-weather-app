@@ -3,32 +3,43 @@
     <div class="main__header">
       <div class="main__temp-container">
         <div class="main__temp-badgets">
-          <app-badge [isImage]="false" [type]="'primary'"></app-badge>
+          <app-badge
+            [type]="isFahrenheit ? 'primary' : 'secondary'"
+            (click)="handleClickToC()"
+          >
+            <app-celsius
+              [ngStyle]="{ fill: isFahrenheit ? '#e7e7eb' : '#110E3C' }"
+            >
+            </app-celsius>
+          </app-badge>
+          <app-badge
+            [type]="!isFahrenheit ? 'primary' : 'secondary'"
+            (click)="handleClickToF()"
+          >
+            <app-fahrenheit
+              [ngStyle]="{ fill: !isFahrenheit ? '#e7e7eb' : '#110E3C' }"
+            >
+            </app-fahrenheit>
+          </app-badge>
         </div>
       </div>
       <app-forecast-single-item
         [selectFiveDaysForecast]="selectFiveDaysForecast$"
       ></app-forecast-single-item>
-
-      <!-- <h1 [ngTemplateOutlet]="cardTemplate" ></h1>
-
-      <ng-template #cardTemplate >
-        <app-card></app-card>
-      </ng-template> -->
     </div>
-
+    <p>
+      {{
+        !isFahrenheit ? customNumber : changeCelsiusToFahrenheit(customNumber)
+      }}
+    </p>
     <div class="main__wrapper">
       <h1 class="main__hilights">Today's Hightlights</h1>
-
       <div class="main__detailed-forecast">
-        <div class="main__detailed-container">
-          <p class="main__detailed-title">Wind Status</p>
-          <div class="main__detailed-forecast">
-            <div class="main__detailed-value">
-              {{ selectWindSpeed$ | async }}
-            </div>
-            <span class="main__detailed-text"> mph </span>
-          </div>
+        <app-forecast-info
+          [title]="'Wind Status'"
+          [value]="selectWindSpeed$"
+          [text]="'mph'"
+        >
           <div class="main__detailed-info">
             <img
               src="../../../../assets/images/navigation.svg"
@@ -36,54 +47,33 @@
             />
             <div>{{ selectWindDirectionCompas$ | async }}</div>
           </div>
-        </div>
+        </app-forecast-info>
 
-        <div class="main__detailed-container">
-          <p class="main__detailed-title">Humidity</p>
-          <div class="main__detailed-forecast">
-            <div class="main__detailed-value">
-              {{ selectHumidity$ | async }}
-            </div>
-            <span class="main__detailed-text"> %</span>
-          </div>
+        <app-forecast-info
+          [title]="'Humidity'"
+          [value]="selectHumidity$"
+          [text]="'%'"
+        >
           <div class="main__detailed-info">
-            <div class="humidity-bar__container">
-              <div class="humidity-bar__value">
-                <span>0</span>
-                <span>50</span>
-                <span>100</span>
-              </div>
-              <div class="humidity-bar__track">
-                <div
-                  class="humidity-bar__percentage"
-                  style="width:{{ selectHumidity$ | async }}%"
-                ></div>
-              </div>
-              <div class="humidity-bar__percent-sign">%</div>
-            </div>
+            <app-humidity-bar
+              [selectHumidity]="selectHumidity$"
+            ></app-humidity-bar>
           </div>
-        </div>
+        </app-forecast-info>
 
-        <div class="main__detailed-container">
-          <p class="main__detailed-title">Visibility</p>
-          <div class="main__detailed-forecast">
-            <div class="main__detailed-value">
-              {{ selectVisibility$ | async }}
-            </div>
-            <span class="main__detailed-text"> miles</span>
-          </div>
-        </div>
+        <app-forecast-info
+          [title]="'Visibility'"
+          [value]="selectVisibility$"
+          [text]="'miles'"
+        ></app-forecast-info>
 
-        <div class="main__detailed-container">
-          <p class="main__detailed-title">Air Pressure</p>
-          <div class="main__detailed-forecast">
-            <div class="main__detailed-value">
-              {{ selectAirPressure$ | async }}
-            </div>
-            <span class="main__detailed-text"> mb</span>
-          </div>
-        </div>
+        <app-forecast-info
+          [title]="'Air Pressure'"
+          [value]="selectAirPressure$"
+          [text]="'mb'"
+        ></app-forecast-info>
       </div>
     </div>
   </div>
 </main>
+l

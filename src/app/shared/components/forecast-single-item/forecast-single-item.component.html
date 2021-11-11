@@ -1,11 +1,11 @@
 <div class="forecast-single-item">
-  <div
-    class="forecast-single-item__container"
+  <app-card
+    [type]="'primary'"
+    [title]="
+      idx === 0 ? 'Tomorrow' : (elem.applicable_date | date: 'EEE, d MMM')
+    "
     *ngFor="let elem of selectFiveDaysForecast | async; let idx = index"
   >
-    <p class="forecast-single-item__title">
-      {{ idx === 0 ? "Tomorrow" : (elem.applicable_date | date: "EEE, d MMM") }}
-    </p>
     <div class="forecast-single-item__content">
       <img
         src="https://www.metaweather.com/static/img/weather/png/64/{{
@@ -14,13 +14,21 @@
         alt="forecast-icon"
       />
     </div>
+
     <div class="forecast-single-item__info">
       <p class="forecast-single-item__max-temp">
-        {{ elem.max_temp?.toFixed(1) }}°C
+        <!-- {{
+          !isFahrenheit ? +(elem.max_temp?.toFixed(1)) : changeCelsiusToFahrenheit(+(elem.max_temp?.toFixed(1)))
+        }}°C -->
+        {{ +elem.max_temp?.toFixed(1) }}
       </p>
       <p class="forecast-single-item__min-temp">
-        {{ elem.min_temp?.toFixed(1) }}°C
+        <!-- {{
+          !isFahrenheit ? +(elem.min_temp?.toFixed(1)) : changeCelsiusToFahrenheit(+(elem.max_temp?.toFixed(1)))
+        }}°C -->
+
+        {{ +elem.min_temp?.toFixed(1) }}°C
       </p>
     </div>
-  </div>
+  </app-card>
 </div>

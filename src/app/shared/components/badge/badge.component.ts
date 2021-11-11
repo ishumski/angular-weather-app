@@ -7,9 +7,6 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class BadgeComponent implements OnInit {
   @Input() type!: string;
-  @Input() src!: string;
-  @Input() alt!: string;
-  @Input() isImage!: boolean;
 
   @Output() handleClick = new EventEmitter<void>();
 

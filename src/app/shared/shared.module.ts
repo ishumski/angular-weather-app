@@ -7,6 +7,8 @@ import { CelsiusComponent } from './components/icons/celsius/celsius.component';
 import { FahrenheitComponent } from './components/icons/fahrenheit/fahrenheit.component';
 import { CardComponent } from './components/card/card.component';
 import { ForecastSingleItemComponent } from './components/forecast-single-item/forecast-single-item.component';
+import { ForecastInfoComponent } from './components/forecast-info/forecast-info.component';
+import { HumidityBarComponent } from './components/humidity-bar/humidity-bar.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,8 @@ import { ForecastSingleItemComponent } from './components/forecast-single-item/f
     FahrenheitComponent,
     CardComponent,
     ForecastSingleItemComponent,
+    ForecastInfoComponent,
+    HumidityBarComponent,
   ],
   exports: [
     ButtonComponent,
@@ -26,6 +30,8 @@ import { ForecastSingleItemComponent } from './components/forecast-single-item/f
     FahrenheitComponent,
     CardComponent,
     ForecastSingleItemComponent,
+    ForecastInfoComponent,
+    HumidityBarComponent,
   ],
   imports: [CommonModule],
   providers: [],

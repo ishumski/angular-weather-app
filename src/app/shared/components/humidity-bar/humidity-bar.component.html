@@ -1,0 +1,14 @@
+<div class="humidity-bar__container">
+  <div class="humidity-bar__value">
+    <span>0</span>
+    <span>50</span>
+    <span>100</span>
+  </div>
+  <div class="humidity-bar__track">
+    <div
+      class="humidity-bar__percentage"
+      style="width:{{ selectHumidity | async }}%"
+    ></div>
+  </div>
+  <div class="humidity-bar__percent-sign">%</div>
+</div>

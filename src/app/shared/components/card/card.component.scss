@@ -2,18 +2,30 @@
 @import "../../../styles/palette";
 @import "../../../styles/fonts";
 
-.card {
-  &__container {
-    @include elemPlacement($dp: flex, $fd: column, $ai: center);
+.primary {
+  @include elemPlacement($dp: flex, $fd: column, $ai: center);
+  @include elemSize($w: 120px);
+  color: $primaryLightgrey;
+  background: $secondaryDarkBlue;
 
-    color: $primaryLightgrey;
-    background: $secondaryDarkBlue;
-
-    @media (max-width: 1175px) {
-      margin-bottom: 32px;
-    }
+  @media (max-width: 1175px) {
+    margin-bottom: 32px;
   }
-  &__title {
+
+  .title {
     @include elemFonts($fw: $normal, $fs: $primaryRegular);
   }
 }
+
+.secondary {
+  @include elemPlacement($dp: flex, $fd: column, $ai: center);
+  @include elemSize($w: 328px, $h: 204px);
+  margin-bottom: 48px;
+  color: $primaryLightgrey;
+  background: $secondaryDarkBlue;
+
+  .title {
+    @include elemFonts($fw: $normal, $fs: $primaryRegular);
+  }
+}
+

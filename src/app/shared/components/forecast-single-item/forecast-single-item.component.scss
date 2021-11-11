@@ -6,21 +6,6 @@
   @include elemPlacement($dp: flex, $jc: space-between);
   @include elemSize($w: 100%);
 
-  &__container {
-    @include elemPlacement($dp: flex, $fd: column, $ai: center);
-    @include elemSize($w: 120px);
-    color: $primaryLightgrey;
-    background: $secondaryDarkBlue;
-
-    @media (max-width: 1175px) {
-      margin-bottom: 32px;
-    }
-  }
-  &__title {
-    @include elemFonts($fw: $normal, $fs: $primaryRegular);
-    margin-bottom: 10px;
-  }
-
   &__content img {
     @include elemSize($w: 60px, $h: 60px);
     margin-bottom: 24px;

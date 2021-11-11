@@ -1,0 +1,10 @@
+<app-card [type]="'secondary'" [title]="title">
+  <div class="forecast-info">
+    <div class="forecast-info__value">
+      {{ value | async }}
+    </div>
+    <span class="forecast-info__text"> {{ text }} </span>
+  </div>
+
+  <ng-content></ng-content>
+</app-card>

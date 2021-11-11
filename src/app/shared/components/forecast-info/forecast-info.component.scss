@@ -1,0 +1,16 @@
+@import "../../../styles/mixins";
+@import "../../../styles/fonts";
+@import "../../../styles/palette";
+
+.forecast-info {
+  @include elemPlacement($dp: flex, $ai: baseline);
+  margin-bottom: 20px;
+
+  &__value {
+    @include elemFonts($fw: $bold, $fs: $huge);
+    margin-right: 15px;
+  }
+  &__text {
+    @include elemFonts($fw: $bold, $fs: $secondaryIncreased);
+  }
+}

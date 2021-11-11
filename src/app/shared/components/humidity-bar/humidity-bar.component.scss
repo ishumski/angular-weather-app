@@ -1,0 +1,29 @@
+@import "../../../styles/mixins";
+@import "../../../styles/fonts";
+@import "../../../styles/palette";
+.humidity-bar {
+  &__container {
+    @include elemPlacement($dp: flex, $fd: column);
+    @include elemSize($w: 100%, $maxw: 229px);
+  }
+  &__value {
+    @include elemPlacement($dp: flex, $jc: space-between);
+    @include elemFonts($fw: $bold, $fs: $small);
+    margin-bottom: 2px;
+    color: $secondaryLightgrey;
+  }
+  &__track {
+    @include elemSize($w: 229px, $h: 8px);
+    margin-bottom: 4px;
+    background: $primaryLightgrey;
+    border-radius: 80px;
+  }
+  &__percentage {
+    @include elemSize($h: 8px);
+    border-radius: 80px;
+    background: $yellow;
+  }
+  &__percent-sign {
+    align-self: end;
+  }
+}

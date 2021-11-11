@@ -28,6 +28,10 @@ export class MainComponent implements OnInit {
     NgIterable<ConsolidatedWeather> | null | undefined
   >;
 
+  isFahrenheit: boolean = false;
+  customNumber: number = 3;
+  min_temp: number = 1;
+
   constructor(private store: Store) {
     this.selectWindSpeed$ = store.select(selectWindSpeed);
     this.selectWindDirectionCompas$ = store.select(selectWindDirectionCompas);
@@ -38,18 +42,23 @@ export class MainComponent implements OnInit {
     this.selectFiveDaysForecast$ = store.select(selectFiveDaysForecast);
   }
 
-  handleClickToF() {
-    console.log('handleClickToF');
+  handleClickToC() {
+    this.isFahrenheit = false;
+    console.log(this.customNumber);
+    console.log('handleClickToC');
   }
 
-  handleClickToC() {
-    console.log('handleClickToC');
+  handleClickToF() {
+    this.isFahrenheit = true;
+    console.log('handleClickToF');
+    return this.changeCelsiusToFahrenheit(this.customNumber);
   }
 
   changeCelsiusToFahrenheit(temperature: number) {
     const changedToFahrenheit: number = parseFloat(
       ((temperature * 9) / 5 + 32).toFixed(1)
     );
+    console.log(changedToFahrenheit);
     return changedToFahrenheit;
   }
 
